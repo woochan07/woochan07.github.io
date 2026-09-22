@@ -1,7 +1,74 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="서울대학교 첨단융합학부에 재학 중인 진우찬의 개인 홈페이지" />
+    <title>진우찬 | Personal Page</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+KR:wght@400;500;700;800&display=swap");
+      :root { --ink: #1c1b19; --paper: #f6f0e4; --accent: #b84a26; --gold: #d6a43e; --muted: #6e685f; --line: rgba(28, 27, 25, 0.16); }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; color: var(--ink); background: radial-gradient(circle at 88% 8%, rgba(214, 164, 62, 0.2), transparent 22rem), linear-gradient(135deg, #fbf7ef 0%, var(--paper) 48%, #ede0c8 100%); font-family: "Noto Sans KR", sans-serif; }
+      .page { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+      header { display: flex; align-items: center; justify-content: space-between; padding: 28px 0; border-bottom: 1px solid var(--line); }
+      .brand, .eyebrow, .label, .footer-note { font-family: "DM Mono", monospace; letter-spacing: 0.04em; }
+      .brand { font-size: 0.9rem; font-weight: 500; }
+      nav a { color: var(--ink); font-size: 0.9rem; font-weight: 700; text-decoration: none; }
+      nav a:hover { color: var(--accent); }
+      main { padding: clamp(64px, 10vw, 128px) 0 68px; }
+      .hero { display: grid; grid-template-columns: 1.4fr 0.6fr; gap: 48px; align-items: end; min-height: 390px; }
+      .eyebrow { display: inline-flex; align-items: center; gap: 9px; margin: 0 0 22px; color: var(--accent); font-size: 0.78rem; font-weight: 500; }
+      .eyebrow::before { width: 24px; height: 1px; background: currentColor; content: ""; }
+      h1 { max-width: 740px; margin: 0; font-size: clamp(3.4rem, 9vw, 7.5rem); font-weight: 800; letter-spacing: -0.085em; line-height: 0.94; }
+      h1 span { color: var(--accent); }
+      .intro { max-width: 510px; margin: 30px 0 0; color: #393530; font-size: clamp(1.05rem, 2vw, 1.25rem); font-weight: 500; line-height: 1.75; word-break: keep-all; }
+      .guitar-mark { position: relative; display: grid; width: min(100%, 240px); aspect-ratio: 1; place-items: center; justify-self: end; border: 1px solid var(--ink); border-radius: 50%; background: var(--ink); color: var(--paper); box-shadow: 10px 10px 0 var(--gold); }
+      .guitar-mark::before, .guitar-mark::after { position: absolute; width: 118%; height: 1px; background: rgba(246, 240, 228, 0.38); content: ""; }
+      .guitar-mark::before { transform: rotate(35deg); }
+      .guitar-mark::after { transform: rotate(-35deg); }
+      .guitar-mark span { z-index: 1; font-size: clamp(4rem, 10vw, 7.5rem); filter: drop-shadow(2px 3px 0 var(--accent)); }
+      .profile-grid { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: clamp(80px, 12vw, 148px); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+      .card { min-height: 200px; padding: 28px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+      .card:nth-child(2) { background: rgba(255, 252, 246, 0.52); }
+      .card:nth-child(3) { background: var(--accent); color: #fff9ed; }
+      .label { margin: 0 0 38px; font-size: 0.72rem; opacity: 0.72; }
+      .card h2 { margin: 0; font-size: clamp(1.35rem, 2.5vw, 1.85rem); letter-spacing: -0.05em; line-height: 1.35; word-break: keep-all; }
+      .interest { display: flex; gap: 13px; align-items: center; }
+      .interest strong { font-size: clamp(1.45rem, 3vw, 2.1rem); letter-spacing: -0.05em; }
+      .contact { display: flex; align-items: center; justify-content: space-between; gap: 30px; margin-top: 24px; padding: 24px 0; border-bottom: 1px solid var(--line); }
+      .contact p { margin: 0; font-size: 0.96rem; font-weight: 700; }
+      .contact a { color: var(--accent); font-family: "DM Mono", monospace; font-size: clamp(0.78rem, 2.3vw, 1rem); font-weight: 500; text-decoration-color: rgba(184, 74, 38, 0.35); text-underline-offset: 4px; }
+      footer { display: flex; justify-content: space-between; padding: 26px 0 38px; color: var(--muted); font-size: 0.72rem; }
+      @media (max-width: 700px) {
+        .page { width: min(100% - 32px, 1120px); }
+        header { padding: 20px 0; }
+        .hero { grid-template-columns: 1fr; gap: 48px; }
+        .guitar-mark { width: 150px; justify-self: start; box-shadow: 7px 7px 0 var(--gold); }
+        .profile-grid { grid-template-columns: 1fr; margin-top: 72px; }
+        .card { min-height: 154px; }
+        .label { margin-bottom: 20px; }
+        .contact { align-items: flex-start; flex-direction: column; gap: 10px; }
+      }
+    </style>
+  </head>
   <body>
-    <h1>안녕하세요, 제 홈페이지입니다</h1>
-    <p>GitHub Pages로 만들었습니다!</p>
+    <div class="page">
+      <header><div class="brand">JIN WOOCHAN / 2026</div><nav><a href="#contact">CONTACT</a></nav></header>
+      <main>
+        <section class="hero" aria-labelledby="page-title">
+          <div><p class="eyebrow">PERSONAL PAGE</p><h1 id="page-title">안녕하세요,<br /><span>진우찬</span>입니다.</h1><p class="intro">수지고를 졸업하고, 서울대학교 첨단융합학부에서 새로운 가능성을 배우고 있습니다.</p></div>
+          <div class="guitar-mark" aria-label="일렉기타"><span aria-hidden="true">🎸</span></div>
+        </section>
+        <section class="profile-grid" aria-label="프로필">
+          <article class="card"><p class="label">01 / EDUCATION</p><h2>수지고 졸업<br />서울대학교<br />첨단융합학부 재학</h2></article>
+          <article class="card"><p class="label">02 / INTEREST</p><div class="interest"><span aria-hidden="true">🎸</span><strong>일렉기타</strong></div></article>
+          <article class="card"><p class="label">03 / NOW PLAYING</p><h2>호기심을 켜고<br />나만의 소리를<br />만드는 중.</h2></article>
+        </section>
+        <section class="contact" id="contact" aria-label="연락처"><p>함께 이야기하고 싶다면</p><a href="mailto:jwc070728@snu.ac.kr">jwc070728@snu.ac.kr</a></section>
+      </main>
+      <footer><span class="footer-note">© 2026 JIN WOOCHAN</span><span class="footer-note">SEOUL, KOREA</span></footer>
+    </div>
   </body>
 </html>
